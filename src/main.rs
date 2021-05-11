@@ -1,4 +1,5 @@
-struct Color {
+#[derive(Clone, Copy)]
+pub struct Color {
     r: u8,
     g: u8,
     b: u8
@@ -12,7 +13,7 @@ fn complementary(color: Color) -> Color {
     }
 }
 
-fn complementary_in_place(color: Color) {
+fn complementary_in_place(mut color: Color) {
     color.r = 255 - color.r;
     color.g = 255 - color.g;
     color.b = 255 - color.b;
@@ -23,7 +24,7 @@ fn display(color: Color) {
 }
 
 fn main() {
-    let mut red = Color { r: 255, g: 0, b: 0 };
+    let red = Color { r: 255, g: 0, b: 0 };
     display(complementary(red));
 
     complementary_in_place(red);
