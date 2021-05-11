@@ -12,7 +12,7 @@ fn complementary(color: &Color) -> Color {
     }
 }
 
-fn complementary_in_place(mut color: Color) {
+fn complementary_in_place(mut color: &mut Color) {
     color.r = 255 - color.r;
     color.g = 255 - color.g;
     color.b = 255 - color.b;
@@ -23,11 +23,12 @@ fn display(color: Color) {
 }
 
 fn main() {
-    let red = Color { r: 255, g: 0, b: 0 };
+    let mut red = Color { r: 255, g: 0, b: 0 };
 
     display(complementary(&red));
 
-    complementary_in_place(red);
+    let copy_red = &mut red;
+    complementary_in_place(copy_red);
 
-    display(Color { r: 255, g: 0, b: 0 });
+    display(red);
 }
