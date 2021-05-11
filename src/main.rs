@@ -1,4 +1,3 @@
-#[derive(Clone, Copy)]
 struct Color {
     r: u8,
     g: u8,
