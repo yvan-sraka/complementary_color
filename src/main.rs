@@ -24,8 +24,9 @@ fn display(color: Color) {
 
 fn main() {
     let mut red = Color { r: 255, g: 0, b: 0 };
-    display(complementary(red));
+    display(complementary(&red));
 
-    complementary_in_place(red);
+    complementary_in_place(&mut red);
     display(red);
 }
+
