@@ -4,7 +4,7 @@ struct Color {
     b: u8
 }
 
-fn complementary(color: &Color) -> Color {
+fn complementary(color: Color) -> Color {
     Color {
         r: 255 - color.r,
         g: 255 - color.g,
@@ -18,14 +18,15 @@ fn complementary_in_place(color: &mut Color) {
     color.b = 255 - color.b;
 }
 
-fn display(color: Color) {
+fn display(color: &mut Color) {
     println!("{:x} {:x} {:x}", color.r, color.g, color.b);
 }
 
 fn main() {
-    let mut red = Color { r: 255, g: 0, b: 0 };
-    display(complementary(red));
-
+    
+    let red = Color { r: 255, g: 0, b: 0 };
+    display(&mut complementary(red));
+    let red =  &mut Color { r: 255, g: 0, b: 0 };
     complementary_in_place(red);
     display(red);
 }
