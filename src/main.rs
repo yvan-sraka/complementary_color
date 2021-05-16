@@ -1,3 +1,5 @@
+//Thomas Catonet
+
 struct Color {
     r: u8,
     g: u8,
@@ -24,8 +26,9 @@ fn display(color: Color) {
 
 fn main() {
     let mut red = Color { r: 255, g: 0, b: 0 };
-    display(complementary(red));
+    display(complementary(&red));
 
-    complementary_in_place(red);
+    let mut red2 =&mut red;
+    complementary_in_place(red2);
     display(red);
 }
